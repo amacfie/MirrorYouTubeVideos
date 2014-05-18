@@ -1,8 +1,9 @@
 MirrorYouTubeVideos
 ===================
 
-This is a bookmarklet that mirrors (horizontally flips) HTML5 YouTube videos.
-For more information, see
+This is the source code for a bookmarklet that mirrors (horizontally flips)
+HTML5 YouTube videos.
+For more information, including an installation link, see
 <http://amacfie.github.io/MirrorYouTubeVideos/>.
 
 
