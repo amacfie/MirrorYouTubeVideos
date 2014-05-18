@@ -11,7 +11,8 @@
 
 </title><link href="Site2.css" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     
-    <meta name="description" content="Easily mirror YouTube dances or any YouTube videos - requires HTML5">
+    <meta name="description" content="Easily mirror YouTube dances or any
+    YouTube videos - requires HTML5">
     <meta name="author" content="Andrew MacFie" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="shortcut icon" href="favicon.ico" /><link rel="apple-touch-icon" href="Content/apple-touch-icon.png" />
 
     <script src="Scripts/modernizr-1.7.min.js"></script>
@@ -58,7 +59,10 @@
             Mirror/Unmirror</a></p>
 
 
-        <p>When you are watching an HTML5 video on YouTube, click the Mirror/Unmirror button you created to mirror the video.  Alternatively, you can right click on the link and add it to your bookmarks, and open the bookmark when you're watching an HTML5 YouTube video.</p>
+        <p>When you are watching an HTML5 video on YouTube, click the
+        Mirror/Unmirror button you created to mirror the video.  Alternatively,
+        you can right click on the link and add it to your bookmarks, and open
+        the bookmark when you're watching an HTML5 YouTube video.</p>
         
         <p>You can tell if a video is HTML5 by right-clicking on the video: If
         you see &quot;About the HTML5 player&quot;
@@ -81,44 +85,13 @@
 
         <h3>Source code</h3>
         
-        <div class="code"><pre class="sh_javascript">(function(){
-    var numberOfVideos = document.getElementsByTagName("video").length;
-    
-    if(numberOfVideos >= 1)
-    {
-        var video;
-        for(var i = 0; i < numberOfVideos; ++i)
-        {
-            if(document.getElementsByTagName("video")[i].videoHeight > 100)
-            {
-                video = document.getElementsByTagName("video")[i];
-                break;
-            }
-        }
-        if(video.style.cssText == "")
-        {
-            window.mirrored=true;
-            video.style.cssText = "-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;";
-            return;
-        }
-        
-        if(window.mirrored)
-        {
-            video.style.cssText = "-moz-transform: scale(1, 1); -webkit-transform: scale(1, 1); -o-transform: scale(1, 1); transform: scale(1, 1);";
-            window.mirrored = false;
-        } 
-        else if(!window.mirrored)
-        {
-            video.style.cssText = "-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;";
-            window.mirrored = true;
-        }
-    };
-})();</pre></div>
-
-
-
-            
-        </div>
+        <p>
+        This bookmarklet was made by Andrew MacFie.
+        <a href= "https://github.com/amacfie/MirrorYouTubeVideos/blob/master/Mirror_HTML5_Video.js">
+            View the source code on GitHub
+        </a>
+        .
+        </p>
 
         <footer id="footer">
             
