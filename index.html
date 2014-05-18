@@ -46,7 +46,18 @@
 
         <h3>How to use</h3>
         <p>Drag this link to your bookmarks bar:</p>
-        <p><a href='javascript:(function(){var%20numberOfVideos=document.getElementsByTagName(%22video%22).length;if(numberOfVideos%20%3E=1){var%20video;for(var%20i=0;i%20%3C%20numberOfVideos;++i){if(document.getElementsByTagName(%22video%22)[i].videoHeight%20%3E%20100){video=document.getElementsByTagName(%22video%22)[i];break;}}if(video.style.cssText==%22%22){window.mirrored=true;video.style.cssText=%22-moz-transform:%20scale(-1,%201);%20-webkit-transform:%20scale(-1,%201);%20-o-transform:%20scale(-1,%201);%20transform:%20scale(-1,%201);%20filter:%20FlipH;%22;return;}if(window.mirrored){video.style.cssText=%22-moz-transform:%20scale(1,%201);%20-webkit-transform:%20scale(1,%201);%20-o-transform:%20scale(1,%201);%20transform:%20scale(1,%201);%22;window.mirrored=false;}else%20if(!window.mirrored){video.style.cssText=%22-moz-transform:%20scale(-1,%201);%20-webkit-transform:%20scale(-1,%201);%20-o-transform:%20scale(-1,%201);%20transform:%20scale(-1,%201);%20filter:%20FlipH;%22;window.mirrored=true;}};})();'>Mirror/Unmirror</a></p>
+        <p>
+    
+        <!--
+        https://github.com/amacfie/MirrorYouTubeVideos
+        http://rawgit.com/
+        (function(){document.body.appendChild(document.createElement('script')).src='https://rawgit.com/amacfie/MirrorYouTubeVideos/master/Mirror_HTML5_Video.js';})();
+        http://meyerweb.com/eric/tools/dencoder/
+        -->
+        <a href="javascript:(function()%7Bdocument.body.appendChild(document.createElement(%27script%27)).src%3D%27https%3A%2F%2Frawgit.com%2Famacfie%2FMirrorYouTubeVideos%2Fmaster%2FMirror_HTML5_Video.js%27%3B%7D)()%3B">
+            Mirror/Unmirror</a></p>
+
+
         <p>When you are watching an HTML5 video on YouTube, click the Mirror/Unmirror button you created to mirror the video.  Alternatively, you can right click on the link and add it to your bookmarks, and open the bookmark when you're watching an HTML5 YouTube video.</p>
         
         <p>You can tell if a video is HTML5 by right-clicking on the video: If
