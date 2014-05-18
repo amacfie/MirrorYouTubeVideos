@@ -1,7 +1,10 @@
 MirrorYouTubeVideos
 ===================
 
-Easily mirror YouTube dances or any YouTube videos - requires HTML5
+This is a bookmarklet that mirrors (horizontally flips) HTML5 YouTube videos.
+For more information, see
+<http://amacfie.github.io/MirrorYouTubeVideos/>.
+
 
 
 ##License
