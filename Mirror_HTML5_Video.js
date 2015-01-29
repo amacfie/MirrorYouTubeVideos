@@ -1,35 +1,34 @@
 ﻿//Toggle:
 (function(){
-	var numberOfVideos = document.getElementsByTagName("video").length;
-	
-	if(numberOfVideos >= 1)
-	{
-		var video;
-		for(var i = 0; i < numberOfVideos; ++i)
-		{
-		    if(document.getElementsByTagName("video")[i].videoHeight > 100)
-			{
-			    video = document.getElementsByTagName("video")[i];
-				break;
-			}
-		}
-		if(video.style.cssText == "")
-		{
-			window.mirrored=true;
-			video.style.cssText = "-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;";
-			return;
-		}
-		
-		if(window.mirrored)
-		{
-			video.style.cssText = "-moz-transform: scale(1, 1); -webkit-transform: scale(1, 1); -o-transform: scale(1, 1); transform: scale(1, 1);";
-			window.mirrored = false;
-		} 
-		else if(!window.mirrored)
-		{
-			video.style.cssText = "-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); transform: scale(-1, 1); filter: FlipH;";
-			window.mirrored = true;
-		}
-	};
-})();
+  var node = document.createElement('style');
+  document.body.appendChild(node);
+  window.addStyleString = function(str) {
+    node.innerHTML = str;
+  }
 
+  cssText = ".xflip { \
+      -moz-transform: scale(-1, 1) !important;\
+      -webkit-transform: scale(-1, 1) !important;\
+      -o-transform: scale(-1, 1) !important;\
+      transform: scale(-1, 1) !important;\
+      filter: FlipH !important;\
+    }";
+
+  addStyleString(cssText);
+
+  var numberOfVideos = document.getElementsByTagName("video").length;
+
+  if(numberOfVideos >= 1)
+  {
+    var video;
+    for(var i = 0; i < numberOfVideos; ++i)
+    {
+        if(document.getElementsByTagName("video")[i].videoHeight > 100)
+      {
+          video = document.getElementsByTagName("video")[i];
+          video.classList.toggle('xflip');
+        break;
+      }
+    }
+  };
+})();
