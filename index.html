@@ -56,24 +56,47 @@
         <p>
         <!--
 // https://mrcoles.com/bookmarklet/
-(function () {
-  const remoteUrl = 'https://cdn.jsdelivr.net/gh/amacfie/MirrorYouTubeVideos@master/Mirror_HTML5_Video.js';
+const remoteUrl = 'https://cdn.jsdelivr.net/gh/amacfie/MirrorYouTubeVideos@master/Mirror_HTML5_Video.js';
 
-  var trustedUrl = '';
-  if (window.trustedTypes && window.trustedTypes.createPolicy) {
-    const myPolicy = window.trustedTypes.createPolicy('myPolicy', {
-      createScriptURL: (input) => input
-    });
+var trustedUrl = '';
+if (window.trustedTypes && window.trustedTypes.createPolicy) {
+  const myPolicy = window.trustedTypes.createPolicy('myPolicy', {
+    createScriptURL: (input) => input
+  });
 
-    trustedUrl = myPolicy.createScriptURL(remoteUrl);
-  } else {
-    trustedUrl = remoteUrl;
+  trustedUrl = myPolicy.createScriptURL(remoteUrl);
+} else {
+  trustedUrl = remoteUrl;
+}
+
+scriptNode = document.createElement('script');
+scriptNode.src = trustedUrl;
+scriptNode.onerror = function() {
+  var node = document.createElement('style');
+  node.type = "text/css";
+
+  cssText = ".xflip { \
+      -moz-transform: scale(-1, 1) !important;\
+      -webkit-transform: scale(-1, 1) !important;\
+      -o-transform: scale(-1, 1) !important;\
+      transform: scale(-1, 1) !important;\
+      filter: FlipH !important;\
+    }";
+
+  node.appendChild(document.createTextNode(cssText));
+
+  document.body.appendChild(node);
+
+  var video = Array.from(document.getElementsByTagName("video"))
+    .find(v => v.videoHeight > 100);
+  if (video) {
+    video.classList.toggle('xflip');
   }
+};
 
-  document.body.appendChild(document.createElement('script')).src = trustedUrl;
-})();
+document.body.appendChild(scriptNode);
         -->
-        <a href="javascript:(function()%7B(function%20()%20%7Bconst%20remoteUrl%20%3D%20'https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Famacfie%2FMirrorYouTubeVideos%40master%2FMirror_HTML5_Video.js'%3Bvar%20trustedUrl%20%3D%20''%3Bif%20(window.trustedTypes%20%26%26%20window.trustedTypes.createPolicy)%20%7Bconst%20myPolicy%20%3D%20window.trustedTypes.createPolicy('myPolicy'%2C%20%7BcreateScriptURL%3A%20(input)%20%3D%3E%20input%7D)%3BtrustedUrl%20%3D%20myPolicy.createScriptURL(remoteUrl)%3B%7D%20else%20%7BtrustedUrl%20%3D%20remoteUrl%3B%7Ddocument.body.appendChild(document.createElement('script')).src%20%3D%20trustedUrl%3B%7D)()%7D)()">
+        <a href="javascript:(function()%7Bconst%20remoteUrl%20%3D%20'https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Famacfie%2FMirrorYouTubeVideos%40master%2FMirror_HTML5_Video.js'%3Bvar%20trustedUrl%20%3D%20''%3Bif%20(window.trustedTypes%20%26%26%20window.trustedTypes.createPolicy)%20%7Bconst%20myPolicy%20%3D%20window.trustedTypes.createPolicy('myPolicy'%2C%20%7BcreateScriptURL%3A%20(input)%20%3D%3E%20input%7D)%3BtrustedUrl%20%3D%20myPolicy.createScriptURL(remoteUrl)%3B%7D%20else%20%7BtrustedUrl%20%3D%20remoteUrl%3B%7DscriptNode%20%3D%20document.createElement('script')%3BscriptNode.src%20%3D%20trustedUrl%3BscriptNode.onerror%20%3D%20function()%20%7Bvar%20node%20%3D%20document.createElement('style')%3Bnode.type%20%3D%20%22text%2Fcss%22%3BcssText%20%3D%20%22.xflip%20%7B%20%5C-moz-transform%3A%20scale(-1%2C%201)%20!important%3B%5C-webkit-transform%3A%20scale(-1%2C%201)%20!important%3B%5C-o-transform%3A%20scale(-1%2C%201)%20!important%3B%5Ctransform%3A%20scale(-1%2C%201)%20!important%3B%5Cfilter%3A%20FlipH%20!important%3B%5C%7D%22%3Bnode.appendChild(document.createTextNode(cssText))%3Bdocument.body.appendChild(node)%3Bvar%20video%20%3D%20Array.from(document.getElementsByTagName(%22video%22)).find(v%20%3D%3E%20v.videoHeight%20%3E%20100)%3Bif%20(video)%20%7Bvideo.classList.toggle('xflip')%3B%7D%7D%3Bdocument.body.appendChild(scriptNode)%7D)()">
             Mirror/Unmirror</a></p>
 
         <p><em>Updated August 12, 2024</em></p>
