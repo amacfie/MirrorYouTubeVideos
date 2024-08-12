@@ -1,10 +1,7 @@
 ﻿//Toggle:
-(function(){
+(function() {
   var node = document.createElement('style');
-  document.body.appendChild(node);
-  window.addStyleString = function(str) {
-    node.innerHTML = str;
-  }
+  node.type = "text/css";
 
   cssText = ".xflip { \
       -moz-transform: scale(-1, 1) !important;\
@@ -14,21 +11,13 @@
       filter: FlipH !important;\
     }";
 
-  addStyleString(cssText);
+  node.appendChild(document.createTextNode(cssText));
 
-  var numberOfVideos = document.getElementsByTagName("video").length;
+  document.body.appendChild(node);
 
-  if(numberOfVideos >= 1)
-  {
-    var video;
-    for(var i = 0; i < numberOfVideos; ++i)
-    {
-        if(document.getElementsByTagName("video")[i].videoHeight > 100)
-      {
-          video = document.getElementsByTagName("video")[i];
-          video.classList.toggle('xflip');
-        break;
-      }
-    }
-  };
+  var video = Array.from(document.getElementsByTagName("video"))
+    .find(v => v.videoHeight > 100);
+  if (video) {
+    video.classList.toggle('xflip');
+  }
 })();
